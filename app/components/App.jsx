@@ -11,25 +11,25 @@ export default class App extends React.Component {
       notes: [
         {
           id: uuid.v4(),
-          task: 'Learn React'
+          task: 'Learn React',
         },
         {
           id: uuid.v4(),
-          task: 'Do laundry'
-        }
-      ]
+          task: 'Do laundry',
+        },
+      ],
     };
   }
 
   render() {
-    const {notes} = this.state;
+    const { notes } = this.state;
 
     return (
       <div>
         <button onClick={this.addNote}>+</button>
         <Notes notes={notes} onDelete={this.deleteNote} />
       </div>
-    )
+    );
   }
 
   addNote = () => {
@@ -44,19 +44,21 @@ export default class App extends React.Component {
     //
     // Libraries, such as Immutable.js, go a notch further.
     this.setState({
-      notes: this.state.notes.concat([{
-        id: uuid.v4(),
-        task: 'New task'
-      }])
+      notes: this.state.notes.concat([
+        {
+          id: uuid.v4(),
+          task: 'New task',
+        },
+      ]),
     });
-  }
+  };
 
   deleteNote = (id, e) => {
     // Avoid bubbling to edit
     e.stopPropagation();
 
     this.setState({
-      notes: this.state.notes.filter(note => note.id !== id)
+      notes: this.state.notes.filter(note => note.id !== id),
     });
-  }
+  };
 }
