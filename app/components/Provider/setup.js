@@ -1,1 +1,1 @@
-export default alt => {}
+export default alt => {};
